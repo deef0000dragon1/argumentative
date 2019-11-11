@@ -13,14 +13,8 @@ type Between struct {
 }
 
 func (Between *Between) RunOnVariable(val ...interface{}) bool {
-	str, ok := val[0].(string)
+	f, ok := getNum(val[0])
 	if !ok {
-		return false
-	}
-
-	f, err := strconv.ParseFloat(str, 64)
-
-	if err != nil {
 		return false
 	}
 
