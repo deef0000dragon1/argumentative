@@ -7,7 +7,7 @@ import (
 func getString( in interface {})(string, bool) {
 
 	fmt.Print("")
-	s, ok := in .(string)
+	s, ok := in.(string)
 
 
 	if !ok {
@@ -54,6 +54,8 @@ func getInt64( in interface {})(int64, bool) {
 		case uint16:return int64(in.(uint16)), true
 		case uint8:	return int64(in.(uint8)), true //also byte
 		case int:	return int64(in.(int)), true
+		case float64:return int64(in.(float64)), true
+		case float32:return int64(in.(float32)), true
 
 	}
 	return 0, false
@@ -66,69 +68,27 @@ func getFloat64( in interface {})(float64, bool) {
 				return 0, false
 			}
 			return f, true
-		case float64:
-			return in.(float64), true
-		case float32:
-			return 0,true
+		case int64:	return float64(in.(int64)), true
+		case int32:	return float64(in.(int32)), true
+		case int16:	return float64(in.(int16)), true
+		case int8:	return float64(in.(int8)), true
+		case uint64:return float64(in.(uint64)), true
+		case uint32:return float64(in.(uint32)), true
+		case uint16:return float64(in.(uint16)), true
+		case uint8:	return float64(in.(uint8)), true //also byte
+		case int:	return float64(in.(int)), true
+		case float64:return in.(float64), true
+		case float32:return float64(in.(float32)), true
 	}
 	return 0, false
 }
 
 
 
-//TODO LATER
-func getInt32( in interface {})(int32, bool) {
-	return 0, false
-}
 
-func getInt16( in interface {})(int16, bool) {
-	return 0, false
-}
-
-func getInt8( in interface {})(int8, bool) {
-	return 0, false
-}
-
-func getUInt64( in interface {})(uint64, bool) {
-	return 0, false
-}
-
-func getUInt32( in interface {})(uint32, bool) {
-	return 0, false
-}
-
-func getUInt16( in interface {})(uint16, bool) {
-	return 0, false
-}
-
-func getUInt8( in interface {})(uint8, bool) {
-	return 0, false
-}
-
-func getInt( in interface {})(int, bool) {
-	i, b := getInt64( in )
-	return int(i), b
-}
-
-func getByte( in interface {})(byte, bool) {
-	return getUInt8(in)
-}
-
-func getRune( in interface {})(rune, bool) {
-	return 0, false
-}
-
-
-
-
-func getFloat32( in interface {})(float32, bool) {
-	return 0, false
-}
-
-
-func getComplex64( in interface {})(complex64, bool) {
+/*func getComplex64( in interface {})(complex64, bool) {
 	return 0, false
 }
 func getComplex128( in interface {})(complex128, bool) {
 	return 0, false
-}
+}*/
