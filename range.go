@@ -1,7 +1,6 @@
 package main
 
 import (
-	"strconv"
 )
 
 type Between struct {
@@ -38,14 +37,8 @@ type Minimum struct {
 }
 
 func (Minimum *Minimum) RunOnVariable(val ...interface{}) bool {
-	str, ok := val[0].(string)
+	f, ok := getNum(val[0])
 	if !ok {
-		return false
-	}
-
-	f, err := strconv.ParseFloat(str, 64)
-
-	if err != nil {
 		return false
 	}
 
@@ -69,12 +62,8 @@ type Maximum struct {
 }
 
 func (Maximum *Maximum) RunOnVariable(val ...interface{}) bool {
-	str, ok := val[0].(string)
+	f, ok := getNum(val[0])
 	if !ok {
-		return false
-	}
-	f, err := strconv.ParseFloat(str, 64)
-	if err != nil {
 		return false
 	}
 

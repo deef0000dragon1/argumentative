@@ -11,7 +11,7 @@ type RegexMatch struct{
 }
 
 func (RegexMatch *RegexMatch) RunOnVariable(val ...interface{}) bool {
-	str, ok := val[0].(string)
+	str, ok := getString(val[0])
 	if !ok {
 		return false
 	}
