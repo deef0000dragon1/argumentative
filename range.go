@@ -11,7 +11,7 @@ type Between struct {
 	Indexes []int
 }
 
-func (Between *Between) RunOnVariable(val ...interface{}) bool {
+func (Between *Between) RunOnVariables(val ...interface{}) bool {
 	f, ok := getNum(val[0])
 	if !ok {
 		return false
@@ -36,7 +36,7 @@ type Minimum struct {
 	Indexes []int
 }
 
-func (Minimum *Minimum) RunOnVariable(val ...interface{}) bool {
+func (Minimum *Minimum) RunOnVariables(val ...interface{}) bool {
 	f, ok := getNum(val[0])
 	if !ok {
 		return false
@@ -61,7 +61,7 @@ type Maximum struct {
 	Indexes []int
 }
 
-func (Maximum *Maximum) RunOnVariable(val ...interface{}) bool {
+func (Maximum *Maximum) RunOnVariables(val ...interface{}) bool {
 	f, ok := getNum(val[0])
 	if !ok {
 		return false

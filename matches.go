@@ -10,7 +10,7 @@ type RegexMatch struct{
 	Indexes []int
 }
 
-func (RegexMatch *RegexMatch) RunOnVariable(val ...interface{}) bool {
+func (RegexMatch *RegexMatch) RunOnVariables(val ...interface{}) bool {
 	str, ok := getString(val[0])
 	if !ok {
 		return false

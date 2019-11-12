@@ -16,7 +16,7 @@ func main() {
 func fakeFunc(a,b,c,d int, e,f,g string) {
 	x := Agreement{
 		Validations:[]Validation{
-			
+			&GreaterThan{},
 		},
 		Truth:&Truths{
 			Signifier:"and",

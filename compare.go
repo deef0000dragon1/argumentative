@@ -8,7 +8,7 @@ type GreaterThan struct{
 	Indexes []int
 }
 
-func (GreaterThan *GreaterThan) RunOnVariable(val ...interface{}) bool {
+func (GreaterThan *GreaterThan) RunOnVariables(val ...interface{}) bool {
 	f1, ok := getNum(val[0])
 	if !ok {
 		return false
@@ -28,7 +28,7 @@ func (GreaterThan *GreaterThan) GetName() string {
 	return GreaterThan.Name
 }
 
-func (GreaterThan * GreaterThan) GetArgIndexes() []int{
+func (GreaterThan *GreaterThan) GetArgIndexes() []int{
 	return GreaterThan.Indexes
 }
 
@@ -38,7 +38,7 @@ type LessThan struct{
 	Indexes []int
 }
 
-func (LessThan *LessThan) RunOnVariable(val ...interface{}) bool {
+func (LessThan *LessThan) RunOnVariables(val ...interface{}) bool {
 	f1, ok := getNum(val[0])
 	if !ok {
 		return false
@@ -68,7 +68,7 @@ type EqualTo struct{
 	Indexes []int
 }
 
-func (EqualTo *EqualTo) RunOnVariable(val ...interface{}) bool {
+func (EqualTo *EqualTo) RunOnVariables(val ...interface{}) bool {
 	f1, ok := getNum(val[0])
 	if !ok {
 		return false
